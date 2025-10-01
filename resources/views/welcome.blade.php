@@ -52,9 +52,9 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="w-full py-4 px-4 sm:px-8 flex flex-wrap justify-between items-center glass shadow-lg fixed top-0 z-50 backdrop-blur-lg bg-opacity-70 transition-all duration-500">
+    <nav class="w-full py-4 px-4 sm:px-8 flex justify-between items-center glass shadow-lg fixed top-0 z-50 backdrop-blur-lg bg-opacity-70 transition-all duration-500">
         <div class="text-2xl sm:text-3xl font-extrabold gradient-text tracking-tight drop-shadow-lg">Siswatrack</div>
-        <div class="flex flex-wrap gap-3 sm:gap-6 text-base sm:text-lg mt-3 sm:mt-0">
+        <div class="flex gap-3 sm:gap-6 text-base sm:text-lg items-center">
             <a href="#features" class="hover:text-yellow-400 transition-colors duration-300">Fitur</a>
             <a href="#about" class="hover:text-yellow-400 transition-colors duration-300">Tentang</a>
             <a href="#contact" class="hover:text-yellow-400 transition-colors duration-300">Kontak</a>
@@ -150,5 +150,5 @@
     <footer class="py-6 text-center text-gray-400 border-t border-gray-700 text-sm sm:text-base">
         &copy; 2025 Siswatrack. All rights reserved.
     </footer>
-</body>
+</body> 
 </html>

@@ -32,7 +32,7 @@
             <!-- Tanggal Lahir -->
             <div>
                 <label for="tangal_lahir" class="block text-sm font-semibold mb-2">Tanggal Lahir</label>
-                <input type="date" name="tangal_lahir" 
+                <input type="date" name="tanggal_lahir" 
                        class="w-full px-4 py-2 rounded-lg bg-gray-800/70 border border-gray-600 
                               focus:ring-2 focus:ring-blue-500 focus:outline-none text-white
                               hover:bg-gray-700/80 transition-all" required>

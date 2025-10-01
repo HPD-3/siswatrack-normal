@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'Contact Book') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <!-- Tailwind CSS via CDN (for DataTables Tailwind theme) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DataTables Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.tailwindcss.css">
 </head>
 <body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen flex font-sans text-blue-100">
 
@@ -33,7 +36,6 @@
         </div>
     </main>
 </div>
-
 
 <script>
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -66,13 +68,34 @@
     });
 </script>
 
+<!-- jQuery (full version) -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- DataTables core JS -->
+<script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+<!-- DataTables Tailwind CSS integration -->
+<script src="https://cdn.datatables.net/2.3.4/js/dataTables.tailwindcss.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.7.1.slim.js"
-        integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" 
-        crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 <script type="text/javascript">
-    let table = new DataTable('#myTable');
+    // Inisialisasi DataTable dengan tema Tailwind
+    document.addEventListener('DOMContentLoaded', function() {
+        new DataTable('#myTable', {
+            language: {
+                search: "Cari:",
+                lengthMenu: "Tampilkan _MENU_ data per halaman",
+                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                infoEmpty: "Tidak ada data tersedia",
+                infoFiltered: "(difilter dari _MAX_ total data)",
+                zeroRecords: "Tidak ditemukan data yang cocok",
+                paginate: {
+                    first: "Pertama",
+                    last: "Terakhir",
+                    next: "Berikutnya",
+                    previous: "Sebelumnya"
+                }
+            }
+            // DataTables Tailwind theme will handle the DOM/layout
+        });
+    });
 </script>
 </body>
 </html>
