@@ -35,15 +35,25 @@
                   {{ request()->routeIs('siswa.index') 
                       ? 'bg-blue-800/90 shadow-lg text-white border-l-4 border-yellow-400'
                       : 'hover:bg-blue-700/40 hover:text-white hover:pl-7' }}">
-            Beranda
+            Data Siswa
         </a>
-        <a href="{{ route('siswa.create') }}"
+
+        <a href="{{ route('teachers.index') }}"
            class="block px-5 py-3 rounded-xl text-base font-semibold tracking-wide
                   transition-all duration-300
-                  {{ request()->routeIs('siswa.create')
+                  {{ request()->routeIs('teachers.index')
                       ? 'bg-blue-800/90 shadow-lg text-white border-l-4 border-yellow-400'
                       : 'hover:bg-blue-700/40 hover:text-white hover:pl-7' }}">
-            Tambah Siswa
+            Data Teacher
         </a>
+        <a href="{{ route('inventory.index') }}"
+           class="block px-5 py-3 rounded-xl text-base font-semibold tracking-wide
+                  transition-all duration-300
+                  {{ request()->routeIs('inventory.index')
+                      ? 'bg-blue-800/90 shadow-lg text-white border-l-4 border-yellow-400'
+                      : 'hover:bg-blue-700/40 hover:text-white hover:pl-7' }}">
+            Data Inventory
+        </a>
+        
     </nav>
 </aside>

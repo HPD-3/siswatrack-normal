@@ -9,8 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- DataTables Tailwind CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.tailwindcss.css">
+    
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen flex font-sans text-blue-100">
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen flex font-sans text-black">
 
 <!-- Main -->
 <div class="flex-1 flex flex-col md:ml-64 transition-all">
@@ -23,11 +24,6 @@
 
     <!-- Content -->
     <main class="flex-1 p-6 relative z-0">
-        @if(session('success'))
-            <div class="mb-4 p-3 bg-green-600/80 text-white rounded-lg shadow-lg">
-                {{ session('success') }}
-            </div>
-        @endif
 
         <div class="bg-blue-800/30 backdrop-blur-lg rounded-2xl shadow-xl p-6 
                     overflow-visible border border-blue-700/40 
@@ -99,3 +95,6 @@
 </script>
 </body>
 </html>
+
+
+

@@ -2,81 +2,85 @@
 
 @section('content')
     <style>
-        /* Custom table styling */
+        /* Formal white table styling */
         #myTable {
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
-            background: linear-gradient(120deg, #1e293b 0%, #1e40af 100%);
-            box-shadow: 0 6px 32px 0 rgba(30, 58, 138, 0.25);
+            background: #fff;
+            box-shadow: 0 6px 32px 0 rgba(30, 58, 138, 0.10);
+            border-collapse: separate;
+            border-spacing: 0;
         }
 
         #myTable thead th {
-            background: linear-gradient(90deg, #1e40af 60%, #0ea5e9 100%);
-            color: #fff;
-            border-bottom: 2px solid #2563eb;
-            font-size: 0.95rem;
-            letter-spacing: 0.08em;
-            text-shadow: 0 1px 2px #1e293b44;
+            background: #f8fafc;
+            color: #22304a;
+            border-bottom: 2px solid #e5e7eb;
+            font-size: 1rem;
+            letter-spacing: 0.07em;
+            text-shadow: none;
+            font-weight: 600;
         }
 
         #myTable tbody tr {
             transition: background 0.2s;
+            background: #fff;
         }
 
         #myTable tbody tr:hover {
-            background: rgba(59, 130, 246, 0.13) !important;
-            box-shadow: 0 2px 12px 0 rgba(30, 64, 175, 0.10);
+            background: #eef2f8 !important;
+            box-shadow: none;
         }
 
-        #myTable td,
-        #myTable th {
-            border: none !important;
+        #myTable td, #myTable th {
+            border: 1px solid #e5e7eb !important;
         }
 
         #myTable td {
             background: transparent !important;
             vertical-align: middle;
+            color: #22304a;
         }
 
-        /* DataTables custom template styling */
+        /* DataTables custom template styling (neutralized for white/formal look) */
         .dataTables_wrapper .dataTables_paginate .paginate_button {
-            background: linear-gradient(90deg, #1e40af 60%, #0ea5e9 100%);
-            color: #fff !important;
+            background: #f3f4f6;
+            color: #22304a !important;
             border-radius: 0.5rem;
             margin: 0 0.15rem;
-            border: none !important;
+            border: 1px solid #e5e7eb !important;
             padding: 0.35rem 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
             transition: background 0.2s, color 0.2s;
         }
 
         .dataTables_wrapper .dataTables_paginate .paginate_button.current,
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            background: linear-gradient(90deg, #facc15 40%, #f59e42 100%) !important;
+            background: #bdd7f6 !important;
             color: #1e293b !important;
-            box-shadow: 0 2px 8px 0 #facc1533;
+            box-shadow: none;
         }
 
         .dataTables_wrapper .dataTables_length select,
         .dataTables_wrapper .dataTables_filter input {
-            background: #1e293b;
-            color: #f1f5f9;
+            background: #fff;
+            color: #22304a;
             border-radius: 0.5rem;
-            border: 1px solid #2563eb;
+            border: 1px solid #e5e7eb;
             padding: 0.3rem 0.7rem;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
         }
 
         .dataTables_wrapper .dataTables_info {
-            color: #cbd5e1;
+            color: #22304a;
             font-size: 0.95rem;
             margin-top: 0.5rem;
         }
 
         .dataTables_wrapper .dataTables_filter label,
         .dataTables_wrapper .dataTables_length label {
-            color: #f1f5f9;
+            color: #22304a;
             font-weight: 500;
             font-size: 0.98rem;
         }
@@ -87,21 +91,23 @@
 
         .dataTables_wrapper .dataTables_filter input:focus,
         .dataTables_wrapper .dataTables_length select:focus {
-            outline: 2px solid #facc15;
-            border-color: #facc15;
-            background: #334155;
+            outline: 2px solid #2463eb;
+            border-color: #2563eb;
+            background: #f9fafb;
         }
     </style>
     <div class="max-w-7xl mx-auto mt-10">
         <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-white tracking-tight">Daftar Siswa</h1>
+            <h1 class="text-3xl font-bold text-yellow-400 tracking-tight">Daftar Siswa</h1>
+            <a href="{{ route('siswa.create') }}" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold px-6 py-2 rounded-full shadow transition-all duration-200">
+                + Tambah Siswa
+            </a>
         </div>
 
-        <div
-            class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 rounded-2xl shadow-2xl border border-blue-800/40 backdrop-blur-lg p-8">
+        <div class="bg-white rounded-2xl shadow-2xl border border-blue-800/10 backdrop-blur-lg p-8">
             @if($datasiswa->count())
                 <div class="overflow-x-auto rounded-xl">
-                    <table id="myTable" class="min-w-full text-sm text-left text-blue-100">
+                    <table id="myTable" class="min-w-full text-sm text-left">
                         <thead>
                             <tr>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">NISN</th>
@@ -111,7 +117,7 @@
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider text-center">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-blue-700/60">
+                        <tbody class="">
                             @foreach($datasiswa as $siswa)
                                 <tr>
                                     <td class="px-6 py-3" data-label="NISN">{{ $siswa->nisn }}</td>
@@ -120,12 +126,12 @@
                                     <td class="px-6 py-3" data-label="Angkatan">{{ $siswa->angkatan ?? '-' }}</td>
                                     <td class="px-6 py-3 flex flex-wrap gap-2 justify-center items-center" data-label="Aksi">
                                         <a href="{{ route('siswa.show', $siswa->id) }}"
-                                            class="inline-block px-4 py-1 rounded-lg bg-blue-800/70 hover:bg-blue-700 text-blue-100 hover:text-white font-medium shadow transition-all"
+                                            class="inline-block px-4 py-1 rounded-lg bg-blue-100 hover:bg-blue-200 text-blue-900 font-medium shadow transition-all border border-blue-200"
                                             title="Lihat">
                                             Lihat
                                         </a>
                                         <a href="{{ route('siswa.edit', $siswa->id) }}"
-                                            class="inline-block px-4 py-1 rounded-lg bg-yellow-700/70 hover:bg-yellow-600 text-yellow-100 hover:text-white font-medium shadow transition-all"
+                                            class="inline-block px-4 py-1 rounded-lg bg-yellow-100 hover:bg-yellow-200 text-yellow-900 font-medium shadow transition-all border border-yellow-200"
                                             title="Edit">
                                             Edit
                                         </a>
@@ -133,7 +139,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" onclick="return confirm('Yakin ingin menghapus?')"
-                                                class="inline-block px-4 py-1 rounded-lg bg-red-700/70 hover:bg-red-600 text-red-100 hover:text-white font-medium shadow transition-all"
+                                                class="inline-block px-4 py-1 rounded-lg bg-red-100 hover:bg-red-200 text-red-700 font-medium shadow transition-all border border-red-200"
                                                 title="Hapus">
                                                 Hapus
                                             </button>

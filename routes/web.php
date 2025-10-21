@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 
@@ -18,7 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::resource('teachers', TeacherController::class);
+Route::resource('inventory', InventoryController::class);
 Route::resource('siswa', SiswaController::class);
 Route::resource('dashboard', SiswaController::class);
 require __DIR__.'/auth.php';
