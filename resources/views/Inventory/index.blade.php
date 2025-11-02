@@ -65,7 +65,7 @@
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">No</th>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Kode Barang</th>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Nama Barang</th>
-                                <th class="px-6 py-3 font-semibold uppercase tracking-wider">Kategori</th>
+                                <th class="px-6 py-3 font-semibold uppercase tracking-wider">Category Name</th>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Deskripsi</th>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Status</th>
                                 <th class="px-6 py-3 font-semibold uppercase tracking-wider">Lokasi Barang</th>
@@ -79,7 +79,7 @@
                                     <td class="px-6 py-3">{{ $index + 1 }}</td>
                                     <td class="px-6 py-3 font-mono">{{ $item->kode_barang }}</td>
                                     <td class="px-6 py-3">{{ $item->nama_barang }}</td>
-                                    <td class="px-6 py-3">{{ $item->kategori }}</td>
+                                    <td>{{ $item->category->category_name ?? '-' }}</td>
                                     <td class="px-6 py-3">{{ $item->deskripsi }}</td>
                                     <td class="px-6 py-3">{{ $item->status }}</td>
                                     <td class="px-6 py-3">{{ $item->lokasi_barang }}</td>

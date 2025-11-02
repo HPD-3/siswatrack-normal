@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventory;
+use App\Models\Categories;
 
 class InventoryController extends Controller
 {
@@ -12,8 +13,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $inventories = Inventory::all();
-        return view('inventory.index', compact('inventories'));
+        $inventories = Inventory::with('category')->get();
+return view('inventory.index', compact('inventories'));
     }
 
     /**
@@ -21,7 +22,8 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('inventory.create');
+        $categories = Categories::all();
+        return view('inventory.create', compact('categories'));
     }
 
     /**
@@ -32,7 +34,7 @@ class InventoryController extends Controller
         $validated = $request->validate([
             'kode_barang'   => 'required|string|max:255|unique:inventories,kode_barang',
             'nama_barang'   => 'required|string|max:255',
-            'kategori'      => 'required|string|max:255',
+            'category_id'   => 'required|exists:categories,id',
             'deskripsi'     => 'nullable|string',
             'status'        => 'required|string|max:255',
             'lokasi_barang' => 'required|string|max:255',
@@ -59,7 +61,8 @@ class InventoryController extends Controller
     public function edit($id)
     {
         $inventory = Inventory::findOrFail($id);
-        return view('inventory.edit', compact('inventory'));
+        $categories = Categories::all();
+        return view('inventory.edit', compact('inventory', 'categories'));
     }
 
     /**
@@ -72,7 +75,7 @@ class InventoryController extends Controller
         $validated = $request->validate([
             'kode_barang'   => 'required|string|max:255|unique:inventories,kode_barang,' . $inventory->id,
             'nama_barang'   => 'required|string|max:255',
-            'kategori'      => 'required|string|max:255',
+            'category_id'   => 'required|exists:categories,id',
             'deskripsi'     => 'nullable|string',
             'status'        => 'required|string|max:255',
             'lokasi_barang' => 'required|string|max:255',
@@ -95,6 +98,3 @@ class InventoryController extends Controller
         return redirect()->route('inventory.index')->with('success', 'Data Inventaris berhasil dihapus.');
     }
 }
-
-
-

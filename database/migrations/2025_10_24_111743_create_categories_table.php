@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->String('kode_barang');
-            $table->String('nama_barang');
-            $table->String('kategori')->index();
-            $table->String('deskripsi');
-            $table->String('status');
-            $table->String('lokasi_barang');
-            $table->boolean('is_active')->default(1);
+            $table->string('category_name');
             $table->timestamps();
+
         });
+
     }
 
     /**
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventories');
+        Schema::dropIfExists('categories');
     }
 };

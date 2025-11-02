@@ -41,12 +41,19 @@
 
             <!-- Kategori -->
             <div>
-                <label for="kategori" class="block text-sm font-semibold mb-2">Kategori</label>
-                <input type="text" name="kategori" id="kategori" value="{{ old('kategori') }}"
+                <label for="category_id" class="block text-sm font-semibold mb-2">Kategori</label>
+                <select name="category_id" id="category_id"
                     class="w-full px-4 py-2 rounded-lg bg-gray-800/70 border border-gray-600 
-                           focus:ring-2 focus:ring-blue-500 focus:outline-none text-white
+                           text-white focus:ring-2 focus:ring-blue-500 focus:outline-none
                            hover:bg-gray-700/80 transition-all"
                     required>
+                    <option value="" disabled {{ old('category_id') ? '' : 'selected' }}>Pilih Kategori</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->category_name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <!-- Deskripsi -->
@@ -108,3 +115,4 @@
     </div>
 </div>
 @endsection
+
