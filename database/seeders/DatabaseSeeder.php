@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
                 "nama_lengkap"  => "Siswa Satu",
                 "tanggal_lahir" => "2005-01-01",
                 "alamat"        => "Jl. Satu No. 1",
-                "jurusan"       => "IPA",
+                "jurusan"       => "PPLG",
                 "angkatan"      => "2023",
                 "no_hp"         => "081234567890",
                 "added_by"      => 1, // or use related user id
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 "nama_lengkap"  => "Siswa Dua",
                 "tanggal_lahir" => "2004-12-12",
                 "alamat"        => "Jl. Dua No. 2",
-                "jurusan"       => "IPS",
+                "jurusan"       => "BC",
                 "angkatan"      => "2022",
                 "no_hp"         => "081298765432",
                 "added_by"      => 1, // or use related user id

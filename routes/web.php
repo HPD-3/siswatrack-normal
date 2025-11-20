@@ -32,6 +32,7 @@ Route::get('/cek-id/{role}/{id}', [PeminjamanController::class, 'cekId']);
 Route::get('/cek-barang/{nama_barang}', [PeminjamanController::class, 'cekBarang']);
 
 Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('pengembalian.index');
+Route::get('/pengembalian/export', [PengembalianController::class, 'export'])->name('pengembalian.export');
 Route::post('/pengembalian/approve/{id}', [PengembalianController::class, 'approveReturn'])->name('pengembalian.approve');
 
 
