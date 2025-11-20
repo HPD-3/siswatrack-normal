@@ -14,7 +14,7 @@ class InventoryController extends Controller
     public function index()
     {
         $inventories = Inventory::with('category')->get();
-return view('inventory.index', compact('inventories'));
+        return view('inventory.index', compact('inventories'));
     }
 
     /**

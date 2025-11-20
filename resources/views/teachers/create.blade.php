@@ -9,7 +9,7 @@
 
         <h2 class="text-2xl font-bold mb-6 text-center text-white">Tambah Data Guru</h2>
 
-        <form action="{{ route('Teachers.store') }}" method="POST" class="space-y-5">
+        <form action="{{ route('teachers.store') }}" method="POST" class="space-y-5">
             @csrf
 
             <!-- NIP -->
